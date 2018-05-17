@@ -14,7 +14,7 @@ request.onload = function() {
 	// create website logo by creating image element
 	const logo = document.createElement('img');
 	// set the image source
-	logo.src = 'logo.png';
+	logo.src = 'totoro.png';
 
 	// craate div element and set the class attribute to container
 	const container = document.createElement('div');
@@ -54,16 +54,15 @@ request.onload = function() {
 			tdDirector.textContent = movie.director;
 			
 			const tdDescription = document.createElement('td');
-			movie.description = movie.description.substring(0,200);
 			tdDescription.setAttribute('class','tdDescription');
-			tdDescription.textContent = `${movie.description}...`;
+			tdDescription.textContent = `${movie.description}`;
 			
 			container.appendChild(movieTable);
 			movieTable.appendChild(movieList);
 			movieList.appendChild(tr);
 			tr.appendChild(tdTitle);
 			tr.appendChild(tdDirector);
-			tr.appendChild(tdDescription);		
+			tr.appendChild(tdDescription);	
 
 			console.log(movie.title);
 			console.log(movie.director);
@@ -71,10 +70,11 @@ request.onload = function() {
 
 		});
 
+
+		// search filter
 		var options = {
 			valueNames: [ 'tdTitle', 'tdDirector', 'tdDescription' ]
 		};
-
 		var movieColumn = new List('root', options);
 
 	} else { // log out error if request fails
